@@ -9,6 +9,7 @@ function NotesBody({ notes }) {
 			<h2>Catatan Aktif</h2>
 			<NotesList notes={notes} />
 			<h2>Arsip</h2>
+			<NotesList notes={notes} />
 		</div>
 	);
 }
