@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class NotesDeleteButton extends Component {
-	render() {
-		return <button className="note-item__delete-button">Delete</button>;
-	}
+export default function NotesDeleteButton({ id, onDelete }) {
+	return (
+		<button
+			className="note-item__delete-button"
+			onClick={() => {
+				onDelete(id);
+			}}
+		>
+			Delete
+		</button>
+	);
 }
-
-export default NotesDeleteButton;
