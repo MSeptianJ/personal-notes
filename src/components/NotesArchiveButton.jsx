@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NotesArchiveButton({ id, onArchive }) {
+export default function NotesArchiveButton({ id, onArchive, isArchived }) {
 	return (
 		<button
 			className="note-item__archive-button"
@@ -8,7 +8,7 @@ export default function NotesArchiveButton({ id, onArchive }) {
 				onArchive(id);
 			}}
 		>
-			Archive
+			{isArchived ? 'Pindahkan' : 'Arsipkan'}
 		</button>
 	);
 }

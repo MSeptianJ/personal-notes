@@ -9,7 +9,11 @@ export default function NotesItem({ id, onDelete, onArchive, note }) {
 			<NotesItemBody {...note} />
 			<div className="note-item__action">
 				<NotesDeleteButton id={id} onDelete={onDelete} />
-				<NotesArchiveButton id={id} onArchive={onArchive} />
+				<NotesArchiveButton
+					id={id}
+					onArchive={onArchive}
+					isArchived={note.archived}
+				/>
 			</div>
 		</div>
 	);

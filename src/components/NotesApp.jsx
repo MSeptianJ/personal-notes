@@ -9,11 +9,13 @@ export default class NotesApp extends Component {
 
 		this.state = {
 			notes: getInitialData(),
+			query: '',
 		};
 
 		this.onDelete = this.onDelete.bind(this);
 		this.onAdd = this.onAdd.bind(this);
 		this.onArchive = this.onArchive.bind(this);
+		this.onSearch = this.onSearch.bind(this);
 	}
 
 	onDelete(id) {
@@ -44,12 +46,22 @@ export default class NotesApp extends Component {
 		});
 	}
 
+	onSearch(query) {
+		this.setState({ query: query });
+	}
+
 	render() {
+		const displayData = this.state.notes.filter((note) => {
+			return this.state.query
+				? note.title.toLowerCase().includes(this.state.query)
+				: this.state.notes;
+		});
+
 		return (
 			<>
-				<NotesHeader />
+				<NotesHeader onSearch={this.onSearch} />
 				<NotesBody
-					notes={this.state.notes}
+					notes={displayData}
 					onDelete={this.onDelete}
 					onAdd={this.onAdd}
 					onArchive={this.onArchive}

@@ -10,9 +10,21 @@ export default function NotesBody({ notes, onAdd, onDelete, onArchive }) {
 		<div className="note-app__body">
 			<NotesInput onAdd={onAdd} />
 			<h2>Catatan Aktif</h2>
-			<NotesList notes={nonArchive} onDelete={onDelete} onArchive={onArchive} />
+			{nonArchive.length ? (
+				<NotesList
+					notes={nonArchive}
+					onDelete={onDelete}
+					onArchive={onArchive}
+				/>
+			) : (
+				<p className="notes-list__empty-message">Tidak ada catatan</p>
+			)}
 			<h2>Arsip</h2>
-			<NotesList notes={archived} onDelete={onDelete} onArchive={onArchive} />
+			{archived.length ? (
+				<NotesList notes={archived} onDelete={onDelete} onArchive={onArchive} />
+			) : (
+				<p className="notes-list__empty-message">Tidak ada catatan</p>
+			)}
 		</div>
 	);
 }

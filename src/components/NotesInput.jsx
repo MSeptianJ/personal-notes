@@ -54,10 +54,10 @@ export default class NotesInput extends Component {
 	render() {
 		return (
 			<div className="note-input">
-				<h2>Buat Catatan</h2>
+				<h2>Buat catatan</h2>
 				<form onSubmit={this.onSubmitValues}>
 					<p className="note-input__title__char-limit">
-						Sisa Karakter: {this.state.maxLimit - this.state.charsLength}
+						Sisa karakter: {this.state.maxLimit - this.state.charsLength}
 					</p>
 					<input
 						className="note-input__title"
@@ -70,7 +70,7 @@ export default class NotesInput extends Component {
 					<textarea
 						className="note-input__body"
 						type="text"
-						placeholder="Tuliskan catatanmu disini ..."
+						placeholder="Tuliskan catatanmu di sini ..."
 						value={this.state.body}
 						onChange={this.onBodyChange}
 						required
