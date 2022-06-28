@@ -3,7 +3,7 @@ import { getInitialData } from '../utils/utils';
 import NotesBody from './NotesBody';
 import NotesHeader from './NotesHeader';
 
-export class NotesApp extends Component {
+export default class NotesApp extends Component {
 	constructor(props) {
 		super(props);
 
@@ -12,6 +12,8 @@ export class NotesApp extends Component {
 		};
 
 		this.onDelete = this.onDelete.bind(this);
+		this.onAdd = this.onAdd.bind(this);
+		this.onArchive = this.onArchive.bind(this);
 	}
 
 	onDelete(id) {
@@ -19,16 +21,23 @@ export class NotesApp extends Component {
 		this.setState({ notes });
 	}
 
-	onAdd({ name, tag }) {
+	onArchive(id) {
+		const note = this.state.notes.find((note) => note.id === id);
+		note.archived ? (note.archived = false) : (note.archived = true);
+		this.setState({ note });
+	}
+
+	onAdd({ title, body }) {
 		this.setState((prevState) => {
 			return {
 				contacts: [
-					...prevState.contacts,
+					...prevState.notes,
 					{
 						id: +new Date(),
-						name,
-						tag,
-						imageUrl: '/images/default.jpg',
+						title,
+						body,
+						archived: false,
+						createdAt: +new Date(),
 					},
 				],
 			};
@@ -43,10 +52,9 @@ export class NotesApp extends Component {
 					notes={this.state.notes}
 					onDelete={this.onDelete}
 					onAdd={this.onAdd}
+					onArchive={this.onArchive}
 				/>
 			</>
 		);
 	}
 }
-
-export default NotesApp;
