@@ -30,7 +30,7 @@ export default class NotesApp extends Component {
 	onAdd({ title, body }) {
 		this.setState((prevState) => {
 			return {
-				contacts: [
+				notes: [
 					...prevState.notes,
 					{
 						id: +new Date(),

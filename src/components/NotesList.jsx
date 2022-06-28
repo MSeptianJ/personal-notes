@@ -15,7 +15,7 @@ export default function NotesList({ notes, onDelete, onArchive }) {
 					/>
 				))
 			) : (
-				<p>Tidak ada Catatan</p>
+				<p>Tidak ada catatan</p>
 			)}
 		</div>
 	);
