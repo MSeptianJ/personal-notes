@@ -48,7 +48,7 @@ export default class NotesInput extends Component {
 		};
 
 		this.props.onAdd(values);
-		this.setState({ title: '', body: '', charLength: 0 });
+		this.setState({ title: '', body: '', charsLength: 0 });
 	}
 
 	render() {
@@ -59,23 +59,25 @@ export default class NotesInput extends Component {
 					<p className="note-input__title__char-limit">
 						Sisa karakter: {this.state.maxLimit - this.state.charsLength}
 					</p>
+					<label htmlFor="input__title">Title</label>
 					<input
+						id="input__title"
 						className="note-input__title"
 						type="text"
-						placeholder="Ini adalah judul ..."
 						value={this.state.title}
 						onChange={this.onTitleChange}
 						required
 					></input>
+					<label htmlFor="input__body">Note body</label>
 					<textarea
+						id="input__body"
 						className="note-input__body"
 						type="text"
-						placeholder="Tuliskan catatanmu di sini ..."
 						value={this.state.body}
 						onChange={this.onBodyChange}
 						required
 					></textarea>
-					<button type="submit">Buat</button>
+					<button type="submit">Submit</button>
 				</form>
 			</div>
 		);

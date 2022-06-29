@@ -14,9 +14,10 @@ export class NotesSearch extends Component {
 	render() {
 		return (
 			<div className="note-search">
+				<label htmlFor="input__search">Search note</label>
 				<input
+					id="input__search"
 					type="text"
-					placeholder="Cari catatan ..."
 					onChange={this.onQueryChange}
 				></input>
 			</div>

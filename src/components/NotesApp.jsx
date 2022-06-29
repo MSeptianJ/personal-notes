@@ -59,12 +59,13 @@ export default class NotesApp extends Component {
 
 		return (
 			<>
-				<NotesHeader onSearch={this.onSearch} />
+				<NotesHeader />
 				<NotesBody
 					notes={displayData}
 					onDelete={this.onDelete}
 					onAdd={this.onAdd}
 					onArchive={this.onArchive}
+					onSearch={this.onSearch}
 				/>
 			</>
 		);
